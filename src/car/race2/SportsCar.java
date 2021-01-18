@@ -10,16 +10,14 @@ package car.race2;
  * @author 37067
  */
 public class SportsCar extends Car {
-    protected boolean spoiler;
+    private boolean spoiler;
     
     public SportsCar(String name, int maxSpeed){
         super(name, maxSpeed);
         this.spoiler = false;
     }  
-    public void isSpoiler() {
-        if (Math.random() > 0.5) {
-            this.spoiler = true;
-        }
+    public void changeSpoiler() {
+        this.spoiler = !this.spoiler;
     }
     public void speed(int howMuch) {
         if (!this.spoiler) {
@@ -34,5 +32,8 @@ public class SportsCar extends Car {
         } else {
             super.brake(howMuch);
         }
+    }
+    public String toString() {
+        return "Sports " + super.toString();
     }
 }
